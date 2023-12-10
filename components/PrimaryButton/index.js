@@ -3,12 +3,6 @@ import styles from './styles';
 import {colors} from '../../const';
 
 const PrimaryButton = ({label = 'Tap', onPressFunc = () => {}, additionStyles = []}) => {
-    const pressHandler = () => {
-        if (typeof onPressFunc === 'function') {
-            onPressFunc();
-        }
-    };
-
     return (
         <View style={styles.btnOuter}>
             <Pressable
@@ -17,7 +11,7 @@ const PrimaryButton = ({label = 'Tap', onPressFunc = () => {}, additionStyles = 
                         ? [styles.pressed, styles.btnInner, ...additionStyles]
                         : [styles.btnInner, ...additionStyles]
                 }
-                onPress={pressHandler}
+                onPress={onPressFunc}
                 android_ripple={{color: colors.mainRed}}
             >
                 <Text style={styles.btnText}>{label}</Text>
