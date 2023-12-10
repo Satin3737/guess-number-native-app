@@ -4,7 +4,7 @@ import styles from './styles';
 import {colors} from '../../const';
 import {useState} from 'react';
 
-const StartGameScreen = () => {
+const StartGameScreen = ({setChosenNumber}) => {
     const [number, setNumber] = useState('');
 
     const inputHandler = (val) => {
@@ -25,7 +25,7 @@ const StartGameScreen = () => {
             return;
         }
 
-        console.log('valid number', chosenNumber);
+        setChosenNumber(chosenNumber);
     };
 
     return (

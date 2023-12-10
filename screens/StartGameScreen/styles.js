@@ -4,7 +4,6 @@ import {colors} from '../../const';
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
-        marginTop: 48,
         borderRadius: 8,
         padding: 24,
         backgroundColor: colors.mainRed,
