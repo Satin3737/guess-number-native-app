@@ -1,9 +1,27 @@
-import {View, Text} from 'react-native';
+import {View, Text, Pressable} from 'react-native';
+import styles from './styles';
+import {colors} from '../../const';
 
-const PrimaryButton = ({children}) => {
+const PrimaryButton = ({label = 'Tap', onPressFunc = () => {}, additionStyles = []}) => {
+    const pressHandler = () => {
+        if (typeof onPressFunc === 'function') {
+            onPressFunc();
+        }
+    };
+
     return (
-        <View>
-            <Text>{children}</Text>
+        <View style={styles.btnOuter}>
+            <Pressable
+                style={({pressed}) =>
+                    pressed
+                        ? [styles.pressed, styles.btnInner, ...additionStyles]
+                        : [styles.btnInner, ...additionStyles]
+                }
+                onPress={pressHandler}
+                android_ripple={{color: colors.mainRed}}
+            >
+                <Text style={styles.btnText}>{label}</Text>
+            </Pressable>
         </View>
     );
 };

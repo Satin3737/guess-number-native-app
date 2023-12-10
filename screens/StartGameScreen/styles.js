@@ -3,11 +3,11 @@ import {colors} from '../../const';
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 100,
-        marginHorizontal: 24,
+        alignItems: 'center',
+        marginTop: 48,
         borderRadius: 8,
-        padding: 16,
-        backgroundColor: '#72063c',
+        padding: 24,
+        backgroundColor: colors.mainRed,
         shadowColor: colors.black,
         shadowOffset: {width: 0, height: 2},
         shadowOpacity: 0.25,
@@ -20,10 +20,16 @@ const styles = StyleSheet.create({
         borderBottomColor: colors.yellow,
         borderBottomWidth: 2,
         color: colors.yellow,
-        marginVertical: 8,
+        marginBottom: 16,
         textAlign: 'center',
-        width: 60,
-        alignSelf: 'center'
+        width: 60
+    },
+    btnContainer: {
+        gap: 8,
+        flexDirection: 'row'
+    },
+    btnWrapper: {
+        flex: 1
     }
 });
 

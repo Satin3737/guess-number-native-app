@@ -13,8 +13,14 @@ const StartGameScreen = () => {
                 cursorColor={colors.white}
                 autoCorrect={false}
             />
-            <PrimaryButton>Reset</PrimaryButton>
-            <PrimaryButton>Confirm</PrimaryButton>
+            <View style={styles.btnContainer}>
+                <View style={styles.btnWrapper}>
+                    <PrimaryButton label={'Reset'} />
+                </View>
+                <View style={styles.btnWrapper}>
+                    <PrimaryButton label={'Confirm'} />
+                </View>
+            </View>
         </View>
     );
 };
