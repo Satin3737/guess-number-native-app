@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     appSaveView: {
         flex: 1,
         paddingHorizontal: 16,
-        paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight + 16 : 16
+        paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight + 24 : 24
     }
 });
 

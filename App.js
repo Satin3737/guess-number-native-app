@@ -6,19 +6,32 @@ import {colors} from './const';
 import {ImageBackground, SafeAreaView} from 'react-native';
 import {useMemo, useState} from 'react';
 import GameScreen from './screens/GameScreen';
+import GameOverScreen from './screens/GameOverScreen';
 
 const App = () => {
     const [chosenNumber, setChosenNumber] = useState(null);
+    const [isGameOver, setIsGameOver] = useState(true);
 
-    const activeScreen = useMemo(
-        () =>
-            chosenNumber ? (
-                <GameScreen chosenNumber={chosenNumber} />
-            ) : (
-                <StartGameScreen setChosenNumber={setChosenNumber} />
-            ),
-        [chosenNumber]
-    );
+    const resetGame = () => setChosenNumber(null);
+
+    const onGameOver = () => setIsGameOver(true);
+
+    const onGameStart = (number) => {
+        setIsGameOver(false);
+        setChosenNumber(number);
+    };
+
+    const activeScreen = useMemo(() => {
+        if (isGameOver && !chosenNumber) {
+            return <StartGameScreen onGameStart={onGameStart} />;
+        }
+
+        if (isGameOver) {
+            return <GameOverScreen resetGame={resetGame} />;
+        }
+
+        return <GameScreen chosenNumber={chosenNumber} onGameOver={onGameOver} />;
+    }, [chosenNumber, isGameOver]);
 
     return (
         <LinearGradient colors={[colors.btnRed, colors.yellow]} style={styles.app}>

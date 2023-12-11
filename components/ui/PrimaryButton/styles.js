@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {colors} from '../../const';
+import {colors} from '../../../const';
 
 const styles = StyleSheet.create({
     btnOuter: {

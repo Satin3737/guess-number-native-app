@@ -1,6 +1,6 @@
 import {View, Text, Pressable} from 'react-native';
 import styles from './styles';
-import {colors} from '../../const';
+import {colors} from '../../../const';
 
 const PrimaryButton = ({label = 'Tap', onPressFunc = () => {}, additionStyles = []}) => {
     return (

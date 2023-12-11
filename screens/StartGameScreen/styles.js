@@ -2,6 +2,9 @@ import {StyleSheet} from 'react-native';
 import {colors} from '../../const';
 
 const styles = StyleSheet.create({
+    screen: {
+        flex: 1
+    },
     container: {
         alignItems: 'center',
         borderRadius: 8,
@@ -12,6 +15,9 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 8,
         elevation: 8
+    },
+    title: {
+        marginBottom: 24
     },
     input: {
         fontSize: 32,
