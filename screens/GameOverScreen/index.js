@@ -1,11 +1,12 @@
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import PrimaryButton from '../../components/ui/PrimaryButton';
+import Title from '../../components/ui/Title';
 
 const GameOverScreen = ({resetGame}) => {
     return (
         <View>
-            <Text>Game Over!</Text>
-            <PrimaryButton label={'New game!'} onPressFunc={resetGame} />
+            <Title styleType={'h1'}>Game Over!</Title>
+            <PrimaryButton onPressFunc={resetGame}>New game!</PrimaryButton>
         </View>
     );
 };

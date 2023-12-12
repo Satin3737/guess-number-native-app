@@ -2,7 +2,7 @@ import {View, Text, Pressable} from 'react-native';
 import styles from './styles';
 import {colors} from '../../../const';
 
-const PrimaryButton = ({label = 'Tap', onPressFunc = () => {}, additionStyles = []}) => {
+const PrimaryButton = ({children = null, onPressFunc = () => {}, additionStyles = []}) => {
     return (
         <View style={styles.btnOuter}>
             <Pressable
@@ -14,7 +14,7 @@ const PrimaryButton = ({label = 'Tap', onPressFunc = () => {}, additionStyles = 
                 onPress={onPressFunc}
                 android_ripple={{color: colors.mainRed}}
             >
-                <Text style={styles.btnText}>{label}</Text>
+                <Text style={styles.btnText}>{children}</Text>
             </Pressable>
         </View>
     );

@@ -24,10 +24,7 @@ const styles = StyleSheet.create({
         fontSize: 36,
         fontWeight: 'bold'
     },
-    question: {
-        color: colors.white,
-        textAlign: 'center',
-        fontSize: 24,
+    subtitle: {
         marginBottom: 16
     },
     feedbackContainer: {

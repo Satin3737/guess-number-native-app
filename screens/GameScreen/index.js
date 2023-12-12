@@ -3,6 +3,8 @@ import styles from './styles';
 import Title from '../../components/ui/Title';
 import {useCallback, useEffect, useMemo, useState} from 'react';
 import PrimaryButton from '../../components/ui/PrimaryButton';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import {colors} from '../../const';
 
 const GameScreen = ({chosenNumber, onGameOver}) => {
     const borders = useMemo(() => ({min: 1, max: 100}), []);
@@ -32,17 +34,25 @@ const GameScreen = ({chosenNumber, onGameOver}) => {
 
     return (
         <View style={styles.screen}>
-            <Title text={"Opponent's guess:"} additionalStyles={[styles.title]} />
+            <Title styleType={'h1'} additionalStyles={[styles.title]}>
+                Opponent's Guess:
+            </Title>
             <View style={styles.numberContainer}>
                 <Text style={styles.number}>{currentGuest}</Text>
             </View>
-            <Text style={styles.question}>Higher or Lower?</Text>
+            <Title styleType={'h2'} additionalStyles={[styles.subtitle]}>
+                Higher or Lower?
+            </Title>
             <View style={styles.feedbackContainer}>
                 <View style={styles.feedbackBtnWrapper}>
-                    <PrimaryButton label={'Lower'} onPressFunc={() => nextGuessHandler(lower)} />
+                    <PrimaryButton onPressFunc={() => nextGuessHandler(lower)}>
+                        <Ionicons name={'md-remove'} size={24} color={colors.white} />
+                    </PrimaryButton>
                 </View>
                 <View style={styles.feedbackBtnWrapper}>
-                    <PrimaryButton label={'Higher'} onPressFunc={() => nextGuessHandler(higher)} />
+                    <PrimaryButton onPressFunc={() => nextGuessHandler(higher)}>
+                        <Ionicons name={'md-add'} size={24} color={colors.white} />
+                    </PrimaryButton>
                 </View>
             </View>
         </View>

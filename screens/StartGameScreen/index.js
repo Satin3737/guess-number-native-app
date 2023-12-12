@@ -27,8 +27,13 @@ const StartGameScreen = ({onGameStart}) => {
 
     return (
         <View style={styles.screen}>
-            <Title text={'Choose a number!'} additionalStyles={[styles.title]} />
+            <Title styleType={'h1'} additionalStyles={[styles.title]}>
+                Guess My Number!
+            </Title>
             <View style={styles.container}>
+                <Title styleType={'h2'} additionalStyles={[styles.subtitle]}>
+                    Enter a number:
+                </Title>
                 <TextInput
                     style={styles.input}
                     maxLength={2}
@@ -41,10 +46,10 @@ const StartGameScreen = ({onGameStart}) => {
                 />
                 <View style={styles.btnContainer}>
                     <View style={styles.btnWrapper}>
-                        <PrimaryButton label={'Reset'} onPressFunc={resetNumber} />
+                        <PrimaryButton onPressFunc={resetNumber}>Reset</PrimaryButton>
                     </View>
                     <View style={styles.btnWrapper}>
-                        <PrimaryButton label={'Confirm'} onPressFunc={confirmNumber} />
+                        <PrimaryButton onPressFunc={confirmNumber}>Confirm</PrimaryButton>
                     </View>
                 </View>
             </View>

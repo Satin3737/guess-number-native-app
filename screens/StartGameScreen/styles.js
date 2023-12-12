@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
     title: {
         marginBottom: 24
     },
+    subtitle: {
+        marginBottom: 16
+    },
     input: {
         fontSize: 32,
         fontWeight: 'bold',
