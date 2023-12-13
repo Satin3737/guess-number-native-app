@@ -3,7 +3,8 @@ import {colors} from '../../const';
 
 const styles = StyleSheet.create({
     screen: {
-        flex: 1
+        flex: 1,
+        paddingBottom: 32
     },
     title: {
         marginBottom: 24
@@ -29,10 +30,17 @@ const styles = StyleSheet.create({
     },
     feedbackContainer: {
         flexDirection: 'row',
-        gap: 8
+        gap: 8,
+        marginBottom: 32
     },
     feedbackBtnWrapper: {
         flex: 1
+    },
+    list: {
+        flex: 1
+    },
+    ListSeparator: {
+        height: 8
     }
 });
 

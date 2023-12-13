@@ -1,8 +1,9 @@
-import {Platform, StyleSheet} from 'react-native';
+import {Dimensions, Platform, StyleSheet} from 'react-native';
 import Constants from 'expo-constants';
 
 const styles = StyleSheet.create({
     app: {
+        minHeight: Dimensions.get('screen').height,
         flex: 1
     },
     appBg: {

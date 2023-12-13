@@ -1,19 +1,18 @@
 import {StyleSheet} from 'react-native';
-import {colors} from '../../../const';
+import {colors} from '../../const';
 
 const styles = StyleSheet.create({
     title: {
-        fontFamily: 'OpenSans-Regular',
-        color: colors.yellow,
+        color: colors.white,
         textAlign: 'center'
     },
     h1: {
-        fontFamily: 'OpenSans-Bold',
-        fontSize: 32
+        fontSize: 32,
+        fontWeight: 'bold',
+        color: colors.yellow
     },
     h2: {
-        fontSize: 24,
-        color: colors.white
+        fontSize: 24
     },
     h3: {
         fontSize: 20
