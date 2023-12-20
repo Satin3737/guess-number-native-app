@@ -1,4 +1,4 @@
-import {Alert, FlatList, Text, View} from 'react-native';
+import {Alert, FlatList, ScrollView, Text, View} from 'react-native';
 import styles from './styles';
 import Title from '../../components/Title';
 import {useCallback, useEffect, useMemo, useState} from 'react';
@@ -6,6 +6,7 @@ import PrimaryButton from '../../components/PrimaryButton';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import {colors} from '../../const';
 import GuessItem from '../../components/GuessItem';
+import {useDeviceOrientation} from '@react-native-community/hooks';
 
 const GameScreen = ({chosenNumber, onGameOver, setGameRounds}) => {
     const borders = useMemo(() => ({min: 1, max: 100}), []);
@@ -14,6 +15,7 @@ const GameScreen = ({chosenNumber, onGameOver, setGameRounds}) => {
     const getRandomNum = useCallback(({min, max}) => Math.floor(Math.random() * (max - min)) + min, []);
     const [currentGuest, setCurrentGuest] = useState(getRandomNum(borders));
     const [guessList, setGuessList] = useState([]);
+    const isLand = useDeviceOrientation() === 'landscape';
 
     const nextGuessHandler = (direction) => {
         if (
@@ -40,7 +42,7 @@ const GameScreen = ({chosenNumber, onGameOver, setGameRounds}) => {
     }, [currentGuest, chosenNumber]);
 
     return (
-        <View style={styles.screen}>
+        <ScrollView style={[styles.screen, isLand ? styles.screenLand : null]}>
             <Title styleType={'h1'} additionalStyles={[styles.title]}>
                 Opponent's Guess:
             </Title>
@@ -65,12 +67,13 @@ const GameScreen = ({chosenNumber, onGameOver, setGameRounds}) => {
             <FlatList
                 style={styles.list}
                 alwaysBounceVertical={false}
+                scrollEnabled={false}
                 data={guessList}
                 keyExtractor={(item) => item}
                 renderItem={(itemData) => <GuessItem data={itemData} />}
                 ItemSeparatorComponent={() => <View style={styles.ListSeparator} />}
             />
-        </View>
+        </ScrollView>
     );
 };
 

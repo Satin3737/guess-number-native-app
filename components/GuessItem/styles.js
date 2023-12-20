@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
     text: {
         opacity: 1,
         color: colors.white,
-        fontSize: 16
+        fontSize: 16,
+        textAlign: 'center'
     },
     innerText: {
         color: colors.btnRed,

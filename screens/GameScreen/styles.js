@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingBottom: 32
     },
+    screenLand: {
+        paddingHorizontal: '20%'
+    },
     title: {
         marginBottom: 24
     },
@@ -37,7 +40,8 @@ const styles = StyleSheet.create({
         flex: 1
     },
     list: {
-        flex: 1
+        flex: 1,
+        paddingBottom: 24
     },
     ListSeparator: {
         height: 8

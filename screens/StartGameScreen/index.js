@@ -1,12 +1,14 @@
-import {Alert, TextInput, View} from 'react-native';
+import {Alert, KeyboardAvoidingView, ScrollView, TextInput, View} from 'react-native';
 import PrimaryButton from '../../components/PrimaryButton';
 import styles from './styles';
 import {colors} from '../../const';
 import {useState} from 'react';
 import Title from '../../components/Title';
+import {useDeviceOrientation} from '@react-native-community/hooks';
 
 const StartGameScreen = ({onGameStart}) => {
     const [number, setNumber] = useState('');
+    const isLand = useDeviceOrientation() === 'landscape';
 
     const inputHandler = (val) => setNumber(val.replace(/\D/g, ''));
 
@@ -26,34 +28,36 @@ const StartGameScreen = ({onGameStart}) => {
     };
 
     return (
-        <View style={styles.screen}>
-            <Title styleType={'h1'} additionalStyles={[styles.title]}>
-                Guess My Number!
-            </Title>
-            <View style={styles.container}>
-                <Title styleType={'h2'} additionalStyles={[styles.subtitle]}>
-                    Enter a number:
+        <ScrollView style={styles.screen}>
+            <KeyboardAvoidingView style={styles.screen} behavior={'position'}>
+                <Title styleType={'h1'} additionalStyles={[styles.title]}>
+                    Guess My Number!
                 </Title>
-                <TextInput
-                    style={styles.input}
-                    maxLength={2}
-                    keyboardType={'number-pad'}
-                    cursorColor={colors.white}
-                    autoCorrect={false}
-                    value={number}
-                    onChangeText={inputHandler}
-                    autoFocus={true}
-                />
-                <View style={styles.btnContainer}>
-                    <View style={styles.btnWrapper}>
-                        <PrimaryButton onPressFunc={resetNumber}>Reset</PrimaryButton>
-                    </View>
-                    <View style={styles.btnWrapper}>
-                        <PrimaryButton onPressFunc={confirmNumber}>Confirm</PrimaryButton>
+                <View style={[styles.container, isLand ? styles.containerLand : null]}>
+                    <Title styleType={'h2'} additionalStyles={[styles.subtitle]}>
+                        Enter a number:
+                    </Title>
+                    <TextInput
+                        style={styles.input}
+                        maxLength={2}
+                        keyboardType={'number-pad'}
+                        cursorColor={colors.white}
+                        autoCorrect={false}
+                        value={number}
+                        onChangeText={inputHandler}
+                        autoFocus={true}
+                    />
+                    <View style={styles.btnContainer}>
+                        <View style={styles.btnWrapper}>
+                            <PrimaryButton onPressFunc={resetNumber}>Reset</PrimaryButton>
+                        </View>
+                        <View style={styles.btnWrapper}>
+                            <PrimaryButton onPressFunc={confirmNumber}>Confirm</PrimaryButton>
+                        </View>
                     </View>
                 </View>
-            </View>
-        </View>
+            </KeyboardAvoidingView>
+        </ScrollView>
     );
 };
 

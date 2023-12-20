@@ -16,6 +16,10 @@ const styles = StyleSheet.create({
         shadowRadius: 8,
         elevation: 8
     },
+    containerLand: {
+        maxWidth: '60%',
+        alignSelf: 'center'
+    },
     title: {
         marginBottom: 24
     },

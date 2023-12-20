@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import {colors} from '../../const';
 
 const styles = StyleSheet.create({
@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     },
     h1: {
         fontSize: 32,
-        fontWeight: 'bold',
+        fontWeight: Platform.select({android: 'bold', ios: 'normal'}),
         color: colors.yellow
     },
     h2: {
